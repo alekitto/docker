@@ -12,4 +12,6 @@ RUN curl -L \
 RUN chmod a+x /docker-buildx
 
 FROM target
+
+RUN apk add bash
 COPY --from=fetcher /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
