@@ -1,3 +1,5 @@
+ARG DOCKER_VERSION=stable
+FROM docker:${DOCKER_VERSION} AS target
 FROM alpine AS fetcher
 
 RUN apk add curl
@@ -9,7 +11,5 @@ RUN curl -L \
 
 RUN chmod a+x /docker-buildx
 
-ARG DOCKER_VERSION=stable
-FROM docker:${DOCKER_VERSION}
-
+FROM target
 COPY --from=fetcher /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
