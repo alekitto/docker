@@ -4,7 +4,7 @@ FROM alpine AS fetcher
 
 RUN apk add curl
 
-ARG BUILDX_VERSION=0.5.1
+ARG BUILDX_VERSION=0.6.0
 RUN curl -L \
   --output /docker-buildx \
   "https://github.com/docker/buildx/releases/download/v${BUILDX_VERSION}/buildx-v${BUILDX_VERSION}.linux-amd64"
